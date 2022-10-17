@@ -32,9 +32,13 @@ const Login = () => {
 
             loginUser(values.email,values.pass)
             .then(res => {
-                setNoti({status:'okay',message:'Logged In'});
-                navigate(redirect);
-                setUser(res)
+                if (res?.displayName) {
+                    setNoti({status:'okay',message:'Logged In'});
+                    navigate(redirect);
+                    setUser(res)
+                }else{
+                    setNoti({status:'error',message:'Invalid email or password'});
+                }
             })
             .catch(err => {
                 setNoti({status:'error',message:`Failed`})
