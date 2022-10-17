@@ -2,6 +2,10 @@ import React, { useContext, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FoodContext } from '../../App';
 import fakeData from '../../fakeData.json';
+import food1 from './fd1.png'
+import food2 from './fd2.png'
+
+
 
 const FoodDetail = () => {
     const {foodId} = useParams()
@@ -71,8 +75,12 @@ const FoodDetail = () => {
                         </svg>
                         Add
                     </button>
+                    <div className='flex gap-3 mt-5'>
+                        <img className='w-24 h-24 object-cover' src={food1} alt="" />
+                        <img className='w-24 h-24 object-cover' src={food2} alt="" />
+                    </div>
                 </div>
-                <div className='basis-1/2 order-1 md:order-2 lg:order-2 mt-[30vh] md:mt-0 lg:mt-0'>
+                <div className='basis-1/2 order-1 md:order-2 lg:order-2 '>
                     <img src={food.photo} alt="" />
                 </div>
             </div>

@@ -36,16 +36,20 @@ const DeliveryDetails = () => {
         return parseInt(total) + ( parseInt(pd.price) * parseInt(pd.quantity) )
     }),[0])
     const tax = (total / 100) * 8;
-    let deliveryFee=12;
-    if (total > 40) {
+    let deliveryFee=0;
+    if (total == 0) {
+        deliveryFee = 0
+    }else if (total > 40) {
         deliveryFee = 0
     }else if(total > 25){
-        deliveryFee = 18
+        deliveryFee = 8
+    }else{
+        deliveryFee = 5
     }
 
     return (
-        <div className='w-full h-screen flex justify-center items-center'>
-            <div className='w-10/12 max-w-[1240px] h-screen flex flex-col md:flex-row lg:flex-row justify-between gap-3'>
+        <div className='w-full md:py-8 flex justify-center items-center'>
+            <div className='w-10/12 max-w-[1240px] flex flex-col md:flex-row lg:flex-row justify-between gap-3'>
                 <div className='md:w-5/12 lg:w-5/12 pt-5 pb-5'>
                     <h2 className='text-3xl font-semibold opacity-70 pb-2'>Edit Delivery Details</h2>
                     <hr />
@@ -60,7 +64,7 @@ const DeliveryDetails = () => {
                         <input type="submit" className='bg-red-500 cursor-pointer duration-300 hover:ring focus:ring-offset-1 ring-red-300 px-4 py-3 rounded text-white text-lg' value='Save & Continue' />
                     </form>
                 </div>
-                <div className='md:w-4/12 lg:w-4/12 pb-8'>
+                <div className='md:w-7/12 lg:w-4/12 pb-8'>
                     <div className='mb-3'>
                         <h4 className='text-xl'>
                             From 
@@ -88,7 +92,7 @@ const DeliveryDetails = () => {
                             <li>${total + tax + deliveryFee}</li>
                         </ul>
                     </div>
-                    <button onClick={() => navigate('../deliver')} disabled={ address?.location ? false : true } className={address?.location && foods.length >= 1 ? 'bg-red-500 w-full px-4 py-3 rounded hover:bg-red-600 duration-300 text-white' :'w-full px-4 py-3 bg-red-200 text-white'}>Place Order</button>
+                    <button onClick={() => navigate('../deliver')} disabled={ address?.location && foods.length ? false : true } className={address?.location && foods.length >= 1 ? 'bg-red-500 w-full px-4 py-3 rounded hover:bg-red-600 duration-300 text-white' :'w-full px-4 py-3 bg-red-200 text-white'}>Place Order</button>
                 </div>
             </div>
         </div>

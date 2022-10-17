@@ -4,9 +4,6 @@ import image2 from './photo2.png'
 import image3 from './photo3.png'
 import icon1 from './train.png'
 
-
-
-
 const ChooseUs = () => {
     return (
         <div>

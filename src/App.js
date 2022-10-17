@@ -3,6 +3,7 @@ import {Routes,Route} from 'react-router-dom';
 import Deliver from './components/Deliver/Deliver';
 import DeliveryDetails from './components/DeliveryDetails/DeliveryDetails';
 import FoodDetail from './components/FoodDetail/FoodDetail';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header'
 import Home from "./components/Home/Home";
 import Login from './components/Login/Login';
@@ -34,6 +35,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/food/detail/:foodId' element={<FoodDetail/>} />
       </Routes>
+      <Footer/>
       {
         noti.status && 
             <div id='notification' className={noti.status === 'error' ? 'bg-red-500 fixed p-3 rounded-xl top-16 shadow-lg right-3 z-20 text-white' : 'bg-green-500 fixed p-3 rounded-xl top-16 shadow-lg right-3 z-20 text-white'}>
